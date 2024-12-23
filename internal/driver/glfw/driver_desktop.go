@@ -209,11 +209,13 @@ func addMissingQuitForMenu(menu *fyne.Menu, d *gLDriver) {
 			lastItem.IsQuit = true
 		}
 	}
-	if lastItem == nil || !lastItem.IsQuit { // make sure the menu always has a quit option
-		quitItem := fyne.NewMenuItem(localQuit, nil)
-		quitItem.IsQuit = true
-		menu.Items = append(menu.Items, fyne.NewMenuItemSeparator(), quitItem)
-	}
+
+	//if lastItem == nil || !lastItem.IsQuit { // make sure the menu always has a quit option
+	//	quitItem := fyne.NewMenuItem(localQuit, nil)
+	//	quitItem.IsQuit = true
+	//menu.Items = append(menu.Items, fyne.NewMenuItemSeparator(), quitItem)
+	//}
+
 	for _, item := range menu.Items {
 		if item.IsQuit && item.Action == nil {
 			item.Action = d.Quit
